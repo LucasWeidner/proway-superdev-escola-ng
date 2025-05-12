@@ -1,0 +1,20 @@
+name: "workflow Exemplo"
+on:
+  workflow_dispatch:
+
+jobs:
+  configurar:
+    runs-on: ubuntu-latest
+    steps:
+    - name: "Configurar o git na pipeline"
+      run: |
+        echo "configurando o git na pipeline"
+        echo "Configurando o git com sucesso"
+    - name: "Configurando o user no git"
+      run: |
+        echo "Configurando o git user.name"
+  construir:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: "Instalar as dependencias"
+        run: echo 'Instalado as dependencias'
