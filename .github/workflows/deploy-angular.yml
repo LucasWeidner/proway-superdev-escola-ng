@@ -1,4 +1,4 @@
-name: "workflow Exemplo"
+name: "Deploy Angular PROD"
 on:
   push:
     branches:
