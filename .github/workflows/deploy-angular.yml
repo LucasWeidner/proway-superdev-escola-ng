@@ -43,7 +43,7 @@ jobs:
       - name: "Configurar Git"
         run: |
           git config --global user.name "Lucas Weidner"
-          gut config --global user.email "lucasmweidner@gmail.com"
+          git config --global user.email "lucasmweidner@gmail.com"
           npm install --global angular-cli-ghpages
       - name: Deploy to GitHub pages
         run: npx angular-cli-ghpages --dir=dist/escolas-ng/browser --no-silent
