@@ -1,7 +1,9 @@
 name: "workflow Exemplo"
 on:
   push:
-  workflow_dispatch:
+    branches:
+      - main
+  #workflow_dispatch:
 
 jobs:
   build:
