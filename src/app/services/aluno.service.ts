@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { AlunoCadastro } from '../models/aluno-cadastro';
 import { Observable } from 'rxjs';
-import { Aluno } from '../models/aluno';
 import { HttpClient } from '@angular/common/http';
+import { Aluno } from '../models/aluno';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AlunoService {
   private urlApi: string;
 
-  constructor(private http: HttpClient) { 
-    this.urlApi = "https://public.franciscosensaulas.com/alunos"
+  constructor(private http: HttpClient) {
+    this.urlApi = "https://public.franciscosensaulas.com/api/v1/escola/alunos";
   }
 
   cadastrar(alunoCadastro: AlunoCadastro): Observable<any>{
@@ -20,5 +21,13 @@ export class AlunoService {
 
   obterTodos(): Observable<Array<Aluno>>{
     return this.http.get<Array<Aluno>>(this.urlApi);
+  }
+
+  apagar(id: number): Observable<any>{
+    return this.http.delete<any>(`${this.urlApi}/${id}`);
+  }
+
+  alterar(id: number, aluno: AlunoCadastro): Observable<any>{
+    return this.http.put<any>(`${this.urlApi}/${id}`, aluno);
   }
 }
