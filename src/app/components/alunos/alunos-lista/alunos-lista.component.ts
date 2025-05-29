@@ -76,7 +76,7 @@ export class AlunosListaComponent {
     this.dialogVisivelCadastarEditar = true;
   }
 
-  confirm1(event: Event, alunoId: number) {
+  confirmarParaApagar(event: Event, alunoId: number) {
     this.confirmationService.confirm({
         target: event.target as EventTarget,
         message: 'Deseja realmente apagar',
