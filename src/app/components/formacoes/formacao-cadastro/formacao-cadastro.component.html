@@ -1,0 +1,18 @@
+<div class="flex flex-column gap-4">
+
+    <p-floatlabel>
+        <input pInputText id="campo-nome" [(ngModel)]="formacao.nome" autocomplete="off">
+        <label for="campo-nome">Nome</label>
+    </p-floatlabel>
+
+    <p-floatlabel>
+        <input pInputText id="campo-descricao" [(ngModel)]="formacao.descricao">
+        <label for="campo-descricao">Descrição</label>
+    </p-floatlabel>
+
+    <p-floatlabel>
+        <p-datepicker inputId="campo-duracao" [(ngModel)]="formacao.duracao" timeOnly="true" />
+        <label for="campo-duracao">Duração </label>
+    </p-floatlabel>
+
+</div>

@@ -25,6 +25,11 @@ export class NavbarComponent {
         command: () => this.navegar("/")
       },
       {
+        label: 'Formações', 
+        icon: '	pi pi-building',
+        command: () => this.navegar("/formacoes")
+      },
+      {
         label: 'Cursos',
         icon: 'pi pi-graduation-cap',
         command: () => this.navegar("/cursos")
