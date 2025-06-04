@@ -47,7 +47,48 @@ export class FormacaoListaComponent implements OnInit{
     this.router.navigate(["formacao/cadastro"])
   }
 
+  redirecionarEditar(idFormacao: number) {
+    this.router.navigate(["/formacoes/editar/" + idFormacao])
+  }
 
+
+  confirmarParaApagar(event: Event, id: number){
+    this.confirmationService.confirm({
+      target: event.target as EventTarget,
+      message: "Deseja realmente apagar",
+      header: "Cuidado",
+      closable: true,
+      closeOnEscape: true,
+      icon: 'pi pi-exclamation-triangle',
+      rejectButtonProps: {
+        label: 'cancelar',
+        severity: 'secondary',
+        outlined: true,
+      },
+      acceptButtonProps: {
+        label: 'Apagar',
+        severity: 'danger',
+      },
+      accept: () => this.apagar(id)
+    });
+  }
+
+  private apagar(id: number){
+    this.formacaoService.apagar(id).subscribe({
+      next: () => this.apresentarMensagemApagado(),
+      error: erro => console.log(`Ocorreu um erro ao tentar apagar: ${erro}`),
+    })
+
+  }
+
+  private apresentarMensagemApagado(){
+    this.messageService.add({
+      severity: 'sucess',
+      summary: 'Sucesso',
+      detail: 'Curso apagado com sucesso'
+    });
+    this.carregarFormacoes();
+  }
 
 }
 

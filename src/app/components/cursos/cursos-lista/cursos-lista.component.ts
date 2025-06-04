@@ -46,14 +46,14 @@ export class CursosListaComponent implements OnInit{
   }
 
   redirecionarEditar(idCurso: number) {
-    this.router.navigate(["/cursos/editar/"])
+    this.router.navigate(["/cursos/editar/" + idCurso])
   }
 
   confirmarParaApagar(event: Event, id: number) {
     this.confirmationService.confirm({
         target: event.target as EventTarget,
         message: 'Deseja realmente apagar',
-        header: 'Cudiado',
+        header: 'Cuidado',
         closable: true,
         closeOnEscape: true,
         icon: 'pi pi-exclamation-triangle',
